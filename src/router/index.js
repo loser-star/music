@@ -6,8 +6,31 @@ import VueRouter from 'vue-router'
 // import Rank from '../views/Rank'
 // import Search from '../views/Search'
 Vue.use(VueRouter)
-
+const Recommend = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/Recommend')
+const Singer = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/Singer')
+const Rank = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/Rank')
+const Search = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/Search')
 const routes = [
+  {
+    path: '/',
+    component: Recommend
+  },
+  {
+    path: '/recommend',
+    component: Recommend
+  },
+  {
+    path: '/singer',
+    component: Singer
+  },
+  {
+    path: '/rank',
+    component: Rank
+  },
+  {
+    path: '/search',
+    component: Search
+  }
 ]
 
 const router = new VueRouter({

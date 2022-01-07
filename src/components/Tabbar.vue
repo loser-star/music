@@ -37,7 +37,7 @@ export default {
   .item{
     padding-bottom:15px ;
     span{
-      @include font_size(20px);
+      @include font_size(30px);
       @include font_color();
     }
     &.router-link-active{
