@@ -10,6 +10,8 @@ const Recommend = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views
 const Singer = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/Singer')
 const Rank = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/Rank')
 const Search = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/Search')
+const Detail = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/Detail')
+const User = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '@/views/User')
 const routes = [
   {
     path: '/',
@@ -17,7 +19,10 @@ const routes = [
   },
   {
     path: '/recommend',
-    component: Recommend
+    component: Recommend,
+    children: [
+      { path: `defail/:id/:type`, component: Detail }
+    ]
   },
   {
     path: '/singer',
@@ -30,6 +35,10 @@ const routes = [
   {
     path: '/search',
     component: Search
+  },
+  {
+    path: '/user',
+    component: User
   }
 ]
 
@@ -40,8 +49,8 @@ const router = new VueRouter({
             2.在服务端上面进行一些额外的配置
   * */
   // 注意点: 如果需要使用预渲染的插件, 那么Router的模式必须是history模式
-  mode: 'history',
-  // mode: 'hash',
+  // mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })

@@ -4,7 +4,7 @@
       <h3>{{ title }}</h3>
     </div>
     <div class="personalized-list">
-      <div class="item" v-for="item in personalized" :key="item.id">
+      <div class="item" v-for="item in personalized" :key="item.id" @click="selectItem(item.id)">
         <img v-lazy="item.picUrl" alt="">
         <p>{{ item.name }}</p>
       </div>
@@ -19,15 +19,21 @@ export default {
       type: Array,
       default: () => []
     },
-    title: String
+    title: String,
+    type: String
   },
-  name: 'Personalized'
+  name: 'Personalized',
+  methods: {
+    selectItem (id) {
+      this.$emit('select', id, this.type)
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/css/variable";
-@import "src/assets/css/mixin";
+@import "../../assets/css/variable";
+@import "../../assets/css/mixin";
 .personalized{
   @include bg_sub_color();
   overflow: hidden;

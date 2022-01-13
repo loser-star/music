@@ -1,13 +1,18 @@
 <template>
   <div class="header" @click="changTheme">
-    <div class="header-left"></div>
-    <p class="header-title">loser音乐</p>
-    <div class="header-right" @click.stop="user"></div>
+    <div class="header-left" @click.stop="back"></div>
+    <p class="header-title">{{ title }}</p>
+    <div class="header-right"></div>
   </div>
 </template>
 <script>
 export default {
-  name: 'Header',
+  props: {
+    title: {
+      type: String
+    }
+  },
+  name: 'SubHeader',
   data () {
     return {
       themes: ['theme', 'theme1', 'theme2'],
@@ -22,19 +27,19 @@ export default {
       }
       document.documentElement.setAttribute('data-theme', this.themes[this.index])
     },
-    user () {
-      this.$router.push('/user')
+    back () {
+      window.history.back()
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/css/mixin";
-@import "src/assets/css/variable";
+@import "../../assets/css/mixin";
+@import "../../assets/css/variable";
 .header{
-  //position: relative;
-  //z-index: 999;
+  position: relative;
+  z-index: 999;
   display: flex;
   width: 100%;
   height: 100px;
@@ -46,16 +51,17 @@ export default {
     height: 84px;
   }
   .header-left{
-    @include bg_img('../assets/images/logo')
+    @include bg_img('../../assets/images/back')
   }
   .header-right{
-    @include bg_img('../assets/images/account')
+    @include bg_img('../../assets/images/more')
   }
   .header-title{
     text-align: center;
     color: #FFFFFF;
     font-weight: bold;
-    @include font_size(25px)
+    @include font_size(25px);
+    @include no-wrap();
   }
 }
 </style>

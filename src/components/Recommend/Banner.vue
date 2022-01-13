@@ -2,7 +2,7 @@
     <swiper :options="swiperOptions" class="banner" v-if="banners.length>0">
       <swiper-slide v-for="item in banners" :key="item.bannerId" class="item">
         <a :href="item.url">
-          <img v-lazy="item.pic" alt="">
+          <img :src="item.pic" alt="">
         </a>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -53,7 +53,7 @@ export default {
 }
 </style>
 <style lang="scss">
-@import "../assets/css/mixin";
+@import "../../assets/css/mixin";
 .banner {
 
   .swiper-pagination-bullet{

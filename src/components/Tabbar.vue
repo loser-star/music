@@ -27,13 +27,15 @@ export default {
 @import "src/assets/css/mixin";
 .tabbar{
   width: 100%;
+  //position: relative;
+  //z-index: 999;
   height: 84px;
   @include bg_sub_color();
   display: flex;
   justify-content: space-around;
   align-items: center;
   //text-align: center;
-  margin-top: 8px;
+  //margin-top: 8px;
   .item{
     padding-bottom:15px ;
     span{
