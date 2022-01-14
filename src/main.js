@@ -5,6 +5,7 @@ import store from './store'
 import fastclick from 'fastclick'
 import './assets/css/base.scss'
 import VueLazyload from 'vue-lazyload'
+import 'babel-polyfill'
 Vue.use(VueLazyload)
 Vue.use(VueLazyload, {
   preLoad: 1.3,

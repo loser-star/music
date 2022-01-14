@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// import * as path from 'path'
 // 注意点: 通过 improt xxx from xxx的方式加载组件, 无论组件有没有被用到, 都会被加载进来
 // import Recommend from '../views/Recommend'
 // import Singer from '../views/Singer'
@@ -26,11 +27,17 @@ const routes = [
   },
   {
     path: '/singer',
-    component: Singer
+    component: Singer,
+    children: [
+      { path: `defail/:id/:type`, component: Detail }
+    ]
   },
   {
     path: '/rank',
-    component: Rank
+    component: Rank,
+    children: [
+      { path: `defail/:id/:type`, component: Detail }
+    ]
   },
   {
     path: '/search',
